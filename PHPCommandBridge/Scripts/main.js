@@ -1,9 +1,13 @@
-function executeCommand(command, outElement, inputs = null, exec_function = null) {
+function executeCommand(command, outElement = null, inputs = null, exec_function = null) {
 	if (exec_function != null) {
 		AjaxCall('Processor.php?command=' + command + '&' + 'input=', exec_function(this.responseText));	
-	} else {
+	} else if (outElement != null) {
 		AjaxCall('Processor.php?command=' + command + '&' + 'input=', function(data) {
 			editElementText(outElement, data);
+		});
+	} else {
+		AjaxCall('Processor.php?command=' + command + '&' + 'input=', function (data) {
+			return data;
 		});
 	}
 }

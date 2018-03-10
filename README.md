@@ -32,7 +32,8 @@ public class Main {
 You  would be able to recieve the output of that code using Pipe-Line:
 ```
 <script src="Scripts/main.js">
-	executeCommand([PATH/TO/JAVAC], null, null, function(data) {
+	executeCommand([PATH/TO/JAVAC]); // Executes JAVAC to compile file.
+	executeCommand([PATH/TO/JAVA] + "PATH/TO/CLASS/FILE", null, null, function(data) { // Executes Java to run file.
 		console.log(data);
 	});
 </script>
