@@ -1,2 +1,6 @@
 'ls' is not recognized as an internal or external command,
 operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'proc_open' is not recognized as an internal or external command,
+operable program or batch file.

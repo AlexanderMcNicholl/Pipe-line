@@ -1,3 +1,4 @@
+
 function executeCommand(command, outElement = null, inputs = null, exec_function = null) {
 	if (exec_function != null) {
 		AjaxCall('Processor.php?command=' + command + '&' + 'input=', exec_function(this.responseText));	
