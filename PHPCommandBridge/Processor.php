@@ -11,9 +11,6 @@ function closeProcess($procPipes, $process) { //DO NOT FORGET TO CLOSE PROCESS!
 	echo "\nprocess executed exit value of $return_value\n";
 }
 function queProcess($cmd, $input='') {
-	if (!is_dir("tmp/error_log")) {
-		mkdir("tmp/error_log");
-	}
 	$descriptorspec = array(
 		0 => array("pipe", "r"),
 		1 => array("pipe", "w"),
