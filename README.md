@@ -20,6 +20,24 @@ executeCommand( "time", null, null, function( e ) {
 # Examples
 In the included example document you can see the ```executeCommand( command, outElement, inputs = null );``` command being used with an interative client and server side command line, as shown below.
 ![example](res/example.PNG)
+The usage of Pipe-Line is not limited to creating interactive command lines, Pipe-line will be able to execute scripts and files in other programming languages, this could be used to create and online IDE or just adding  universal support for all languages to your website (running code from languages such a Java or Python). 
+For example, say you had the following Java code:
+```
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("test");
+	}
+}
+```
+You  would be able to recieve the output of that code using Pipe-Line:
+```
+<script src="Scripts/main.js">
+	executeCommand([PATH/TO/JAVAC], null, null, function(data) {
+		console.log(data);
+	});
+</script>
+```
+This would output: ```test```. 
 
 # Future updates
 Pipe-line aims to later include:
