@@ -3,24 +3,27 @@
 <head><title>PHP Command Bridge DEMO</title></head>
 	<script src="Scripts/main.js"></script>
 	<body style="background-color: black; color: limegreen;">
-		<div id="outDiv"></div>
+		<div id="outDiv"></div> <!-- This is where the output pipes will be parsed to. -->
 		<pre>> <input id="inTxt" placeholder="input" style="background-color: black; border: none; color: limegreen; outline: 0;" onkeydown="
-		if (event.keyCode == 13) { 
+		if (event.keyCode == 13) {  // <= If the key 'Enter' is pressed:
+
 			// You can either call a function on complete with:
 			// executeCommand(this.value, null, null, function(e) {
 			// 	//Do something with e.
 			// }); 
+
 			// Or you can specify an output element:
+
 			executeCommand(this.value, 'outDiv');
 			this.value = ''; 
-			return false; 
+			return false; // <= Return false to stop a new line.
 		}
 		" /></pre>
 	<script type="text/javascript">
 		(function () {
 			var inputText = document.getElementById('inTxt');
 			if (inputText.focus() == false) {
-				inputText.focus();
+				inputText.focus(); // <= Auto focuses the input field.
 			}
 		})();
 	</script>
