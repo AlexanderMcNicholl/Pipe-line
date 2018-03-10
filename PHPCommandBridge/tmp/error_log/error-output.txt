@@ -36,3 +36,15 @@ operable program or batch file.
 operable program or batch file.
 'dor' is not recognized as an internal or external command,
 operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'localhost' is not recognized as an internal or external command,
+operable program or batch file.
+''' is not recognized as an internal or external command,
+operable program or batch file.

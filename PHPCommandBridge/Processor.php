@@ -20,14 +20,14 @@ function queProcess($cmd, $input='') {
 		2 => array("file", "tmp/error_log/error-output.txt", "a")
 	);
 	$process = proc_open($cmd, $descriptorspec, $pipes);
+	echo '<pre>';
 	if (is_resource($process)) {
 		//Start user inputs.
 		userInput($input, $pipes);
 		//End user inputs.
 		fclose($pipes[0]);
-		echo '<pre>';
-		echo stream_get_contents($pipes[1]);
 	}
+	echo stream_get_contents($pipes[1]);
 	closeProcess($pipes, $process);	
 	echo '</pre>';
 }
