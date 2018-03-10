@@ -11,5 +11,14 @@ executeCommand(command, outElement, inputs = null);
 ```
 This will execute the entered command and dump the output to the element with the id of outElement.
 
+# Examples
+In the included example document you can see the ```executeCommand( command, outElement, inputs = null );``` command being used with an interative client and server side command line, as shown below.
+![example](res/example.PNG)
+
+# Future updates
+Pipe-line aims to later include:
+* Full support for installation using npm.
+* node.js releases.
+
 # Release notes
 * Pipe-line initial commit.
