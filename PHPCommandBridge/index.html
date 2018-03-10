@@ -13,8 +13,10 @@
 		" /></pre>
 	<script type="text/javascript">
 		(function () {
-			document.getElementById('inTxt').focus();
-
+			var inputText = document.getElementById('inTxt');
+			if (inputText.focus() == false) {
+				inputText.focus();
+			}
 		})();
 	</script>
 	</body>
