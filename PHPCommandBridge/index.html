@@ -6,7 +6,12 @@
 		<div id="outDiv"></div>
 		<pre>> <input id="inTxt" placeholder="input" style="background-color: black; border: none; color: limegreen; outline: 0;" onkeydown="
 		if (event.keyCode == 13) { 
-			executeCommand(this.value, 'outDiv'); 
+			// You can either call a function on complete with:
+			// executeCommand(this.value, 'outDiv', null, function(e) {
+			// 	//Do something with e.
+			// }); 
+			// Or you can specify an output element:
+			executeCommand(this.value, 'outDiv');
 			this.value = ''; 
 			return false; 
 		}
