@@ -6,7 +6,7 @@
 		<div id="outDiv"></div>
 		<pre>> <input id="inTxt" placeholder="input" style="background-color: black; border: none; color: limegreen; outline: 0;" onkeydown="
 		if (event.keyCode == 13) { 
-			executeCommand(this.value, 'outDiv', null); 
+			executeCommand(this.value, 'outDiv'); 
 			this.value = ''; 
 			return false; 
 		}

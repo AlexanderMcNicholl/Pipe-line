@@ -67,3 +67,11 @@ to set your account's default identity.
 Omit --global to set the identity only in this repository.
 
 fatal: unable to auto-detect email address (got 'SYSTEM@VAULT111.(none)')
+'readline' is not recognized as an internal or external command,
+operable program or batch file.
+'x' is not recognized as an internal or external command,
+operable program or batch file.
+'$x' is not recognized as an internal or external command,
+operable program or batch file.
+'temp' is not recognized as an internal or external command,
+operable program or batch file.

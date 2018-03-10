@@ -32,5 +32,6 @@ function queProcess($cmd, $input='') {
 	echo '</pre>';
 }
 $command = $_REQUEST['command'];
-queProcess($command);
+$inputs = $_REQUEST['input'];
+queProcess($command, $inputs);
 ?>

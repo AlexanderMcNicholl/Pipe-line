@@ -5,6 +5,6 @@ function executeCommand(command, outElement, inputs = null) {
 			document.getElementById(outElement).innerHTML = this.responseText;
 		}
 	};
-	xhttp.open('POST', 'Processor.php?command=' + command, true);
+	xhttp.open('POST', 'Processor.php?command=' + command + '&' + 'input=' + inputs, true);
 	xhttp.send();
 }
