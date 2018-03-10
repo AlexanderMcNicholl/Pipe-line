@@ -4,7 +4,7 @@
 	<script src="Scripts/main.js"></script>
 	<body style="background-color: black; color: limegreen;">
 		<div id="outDiv"></div> <!-- This is where the output pipes will be parsed to. -->
-		<pre>root> <input id="inTxt" placeholder="input" style="background-color: black; border: none; color: limegreen; outline: 0;" onkeydown="
+		<pre>root> <input id="inTxt" placeholder="input" style="background-color: black; border: none; color: limegreen; outline: 0; width: 80%;" onkeydown="
 		if (event.keyCode == 13) {  // <= If the key 'Enter' is pressed:
 
 			executeCommand(this.value, 'outDiv');
@@ -14,7 +14,8 @@
 		" /></pre>
 	<script type="text/javascript">
 		(function () {
-			executeCommand('help', 'outDiv');
+			var startingCommand = "cmd";
+			executeCommand(startingCommand, 'outDiv');
 			var inputText = document.getElementById('inTxt');
 			if (inputText.focus() == false) {
 				inputText.focus(); // <= Auto focuses the input field.
