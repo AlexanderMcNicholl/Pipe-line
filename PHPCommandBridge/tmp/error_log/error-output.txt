@@ -2,3 +2,37 @@
 operable program or batch file.
 'ls' is not recognized as an internal or external command,
 operable program or batch file.
+'ehco' is not recognized as an internal or external command,
+operable program or batch file.
+'1' is not recognized as an internal or external command,
+operable program or batch file.
+'test' is not recognized as an internal or external command,
+operable program or batch file.
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'wget' is not recognized as an internal or external command,
+operable program or batch file.
+'dor' is not recognized as an internal or external command,
+operable program or batch file.
