@@ -15,3 +15,7 @@ Unrecognized option: -v
 operable program or batch file.
 'php' is not recognized as an internal or external command,
 operable program or batch file.
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+'dor' is not recognized as an internal or external command,
+operable program or batch file.
