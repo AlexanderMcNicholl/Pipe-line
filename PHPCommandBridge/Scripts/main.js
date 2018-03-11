@@ -1,34 +1,60 @@
 
 function executeCommand(command, outElement = null, inputs = null, exec_function = null) {
+	var logFile = "tmp/logs/user_logs.txt";
+	var userCommand = command + "";
 	if (exec_function != null) {
-		AjaxCall('Processor.php?command=' + command + '&' + 'input=', exec_function(this.responseText));	
+		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', exec_function(this.responseText));	
 	} else if (outElement != null) {
-		AjaxCall('Processor.php?command=' + command + '&' + 'input=', function(data) {
+		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', function(data) {
 			editElementText(outElement, data);
 		});
 	} else {
-		AjaxCall('Processor.php?command=' + command + '&' + 'input=', function (data) {
+		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', function (data) {
 			return data;
 		});
 	}
 }
 // Experimental AJAX Buffering for procedural outputs.
-function AjaxBuffer(obj) {
+function ajax(obj) {
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function() {
 		if (this.readyState == 4) {
 			obj.success(this.responseText);
-		} 
+		} else {
+			obj.process('Executing...');
+		}
 	};
 	ajax.addEventListener('progress', function(oEvent) {
-		obj.process((oEvent.loaded / oEvent.total) * 100);
+		obj.process({
+			total	: oEvent.total, 
+			current	: oEvent.loaded,
+			response: ajax.responseText,
+		});
 	});
 	ajax.open(obj.type, obj.url, true);
 	ajax.send();
 	return ajax;
 }
+function updateSend(url, exec_function) {
+	var index 	= 0;
+	var prog 	= 0;
+	ajax({
+		type	: "POST",
+		url 	: url,
+		process : function (data) {
+			index 	= data.total;
+			prog 	= data.loaded;
+			if (prog < index) {
+				exec_function(data.response);
+				updateSend(url, exec_function);
+			} else {
+				exec_function(data.response);
+			}
+		}
+	});
+}
 function AjaxCall(url, exec_function) {
-	var buffer = AjaxBuffer({
+	ajax({
 		type: 'GET',
 		url: url,
 		success: function(data) {

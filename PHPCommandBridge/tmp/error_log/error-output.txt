@@ -21,3 +21,29 @@ operable program or batch file.
 operable program or batch file.
 'j' is not recognized as an internal or external command,
 operable program or batch file.
+'rm' is not recognized as an internal or external command,
+operable program or batch file.
+Invalid switch - "txt".
+Could Not Find D:\wamp64\www\Pipe-line\PHPCommandBridge\text.txt
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.
+The process cannot access the file because it is being used by another process.
+The process cannot access the file because it is being used by another process.
+The process cannot access the file because it is being used by another process.
+'dirinput' is not recognized as an internal or external command,
+operable program or batch file.
+'test' is not recognized as an internal or external command,
+operable program or batch file.
+'no' is not recognized as an internal or external command,
+operable program or batch file.
+'yes' is not recognized as an internal or external command,
+operable program or batch file.
+The syntax of the command is incorrect.
+The syntax of the command is incorrect.

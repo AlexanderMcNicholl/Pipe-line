@@ -28,9 +28,9 @@ function queProcess($cmd, $input='') {
 		userInput($input, $pipes); // This writes data (fwrite) into pipe[0] (stdin).
 		//End user inputs.
 		fclose($pipes[0]); // This closes the input pipes, data can no longer be writting to pipe[0].
+		echo stream_get_contents($pipes[1]); // This dumps the process's output.
+		closeProcess($pipes, $process);	 // This will finally close the process and all of the I/O pipes.
 	}
-	echo stream_get_contents($pipes[1]); // This dumps the process's output.
-	closeProcess($pipes, $process);	 // This will finally close the process and all of the I/O pipes.
 	echo '</pre>'; // This ends the pre tag.
 }
 $command = $_REQUEST['command']; // Retrieving data from AJAX call. <= The command to be executed.
