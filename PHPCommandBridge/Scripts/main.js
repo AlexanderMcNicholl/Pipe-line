@@ -1,7 +1,10 @@
 
 function executeCommand(command, outElement = null, inputs = null, exec_function = null) {
 	var logFile = "tmp/logs/user_logs.txt";
-	var userCommand = command + "";
+	var userCommand = command;
+	if (inputs != null) {
+		userCommand = "'" + command + " | " + inputs + "'";
+	}
 	if (exec_function != null) {
 		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', exec_function(this.responseText));	
 	} else if (outElement != null) {
