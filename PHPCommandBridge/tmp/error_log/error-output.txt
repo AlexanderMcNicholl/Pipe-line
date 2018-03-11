@@ -8,3 +8,10 @@ operable program or batch file.
 operable program or batch file.
 'administrator' is not recognized as an internal or external command,
 operable program or batch file.
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+Unrecognized option: -v
+'readline' is not recognized as an internal or external command,
+operable program or batch file.
+'php' is not recognized as an internal or external command,
+operable program or batch file.

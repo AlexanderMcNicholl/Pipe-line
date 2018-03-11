@@ -14,16 +14,20 @@ function executeCommand(command, outElement = null, inputs = null, exec_function
 }
 function AjaxCall(url, exec_function) {
 	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
+	xhttp.responseType = 'text';
+	xhttp.onload = function () {
 			exec_function(this.responseText);
-		} else {
-			// Creates and output buffer to show command is being executed.
-			exec_function("<pre>Executing command...</pre>");
-		}
 	}
-	xhttp.open('POST', url, true);
+	xhttp.open('GET', url, true);
 	xhttp.send(); // Sends the AJAX Request.
+	
+}
+function fetchCall(url, exec_function) {
+	fetch(url).then(function(data) {
+		data.text().then(function(returnText) {
+			exec_function(returnText);
+		});
+	});
 }
 function editElementText(element, text) {
 	document.getElementById(element).innerHTML = text;
