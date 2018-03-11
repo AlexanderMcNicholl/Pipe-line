@@ -18,24 +18,24 @@ function AjaxBuffer(obj) {
 	ajax.onreadystatechange = function() {
 		if (this.readyState == 4) {
 			obj.success(this.responseText);
-		} else {
-			if (obj.process != null) {
-				obj.process();
-			}
-		}
+		} 
 	};
+	ajax.addEventListener('progress', function(oEvent) {
+		obj.process((oEvent.loaded / oEvent.total) * 100);
+	});
 	ajax.open(obj.type, obj.url, true);
 	ajax.send();
+	return ajax;
 }
 function AjaxCall(url, exec_function) {
-	AjaxBuffer({
+	var buffer = AjaxBuffer({
 		type: 'GET',
 		url: url,
 		success: function(data) {
 			exec_function(data);
 		},
-		process: function() {
-			exec_function("<pre>Processing...</pre>");
+		process: function(data) {
+			exec_function("<pre>Processing: " + (data) + "</pre>");
 		},
 	});
 }
