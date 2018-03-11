@@ -4,3 +4,7 @@ operable program or batch file.
 operable program or batch file.
 'proc_open' is not recognized as an internal or external command,
 operable program or batch file.
+'sudo' is not recognized as an internal or external command,
+operable program or batch file.
+'administrator' is not recognized as an internal or external command,
+operable program or batch file.

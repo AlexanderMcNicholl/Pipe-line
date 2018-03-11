@@ -18,11 +18,12 @@ function AjaxCall(url, exec_function) {
 		if (this.readyState == 4 && this.status == 200) {
 			exec_function(this.responseText);
 		} else {
-			exec_function("Executing function...");
+			// Creates and output buffer to show command is being executed.
+			exec_function("<pre>Executing command...</pre>");
 		}
 	}
 	xhttp.open('POST', url, true);
-	xhttp.send();
+	xhttp.send(); // Sends the AJAX Request.
 }
 function editElementText(element, text) {
 	document.getElementById(element).innerHTML = text;
