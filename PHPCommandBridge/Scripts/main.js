@@ -3,13 +3,13 @@ function executeCommand(command, outElement = null, inputs = null, exec_function
 	var logFile = "tmp/logs/user_logs.txt";
 	var userCommand = command + "";
 	if (exec_function != null) {
-		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', exec_function(this.responseText));	
+		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', exec_function(this.responseText));	
 	} else if (outElement != null) {
-		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', function(data) {
+		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', function(data) {
 			editElementText(outElement, data);
 		});
 	} else {
-		AjaxCall('Processor.php?command=' + userCommand + '&' + 'input=', function (data) {
+		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', function (data) {
 			return data;
 		});
 	}
@@ -36,14 +36,14 @@ function ajax(obj) {
 	return ajax;
 }
 function updateSend(url, exec_function) {
-	var index 	= 0;
-	var prog 	= 0;
+	var index = 0;
+	var prog = 0;
 	ajax({
-		type	: "POST",
-		url 	: url,
-		process : function (data) {
-			index 	= data.total;
-			prog 	= data.loaded;
+		type: "POST",
+		url: url,
+		process: function (data) {
+			index = data.total;
+			prog = data.loaded;
 			if (prog < index) {
 				exec_function(data.response);
 				updateSend(url, exec_function);

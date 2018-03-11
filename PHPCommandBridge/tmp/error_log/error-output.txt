@@ -47,3 +47,7 @@ operable program or batch file.
 operable program or batch file.
 The syntax of the command is incorrect.
 The syntax of the command is incorrect.
+'ping20%localhost' is not recognized as an internal or external command,
+operable program or batch file.
+'ping20%localhost' is not recognized as an internal or external command,
+operable program or batch file.

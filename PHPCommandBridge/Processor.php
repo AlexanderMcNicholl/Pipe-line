@@ -20,6 +20,7 @@ function queProcess($cmd, $input='') {
 		// The last pipe is the error for the I/O stream. (stderr)
 		2 => array("file", "tmp/error_log/error-output.txt", "a") 
 	);
+	flush(); // <= Flush any buffers.
 	// This will start the process and open an I/O stream.
 	$process = proc_open($cmd, $descriptorspec, $pipes);
 	echo '<pre>'; // The pre tags keeps the outputs in the original formatting.
@@ -33,7 +34,23 @@ function queProcess($cmd, $input='') {
 	}
 	echo '</pre>'; // This ends the pre tag.
 }
+function bufferProcess($cmd) {
+	while (@ ob_end_flush());
+	$proc = popen($cmd, 'r');
+	echo '<pre>';
+	while (!feof($proc))
+	{
+	    echo fread($proc, 4096);
+	    @ flush();
+	}
+	echo '</pre>';
+}
 $command = $_REQUEST['command']; // Retrieving data from AJAX call. <= The command to be executed.
 $inputs = $_REQUEST['input']; // <= The user response to command. E.G. a readlines call.
-queProcess($command, $inputs); // This will que to the process to be executed. 
+bufferProcess($command); // This will que to the process to be executed. 
+
+/*
+* DEPRICATED METHODS
+
+*/
 ?>
