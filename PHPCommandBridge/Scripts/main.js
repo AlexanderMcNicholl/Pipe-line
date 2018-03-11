@@ -53,18 +53,6 @@ function updateSend(url, exec_function) {
 		}
 	});
 }
-function AjaxCall(url, exec_function) {
-	ajax({
-		type: 'GET',
-		url: url,
-		success: function(data) {
-			exec_function(data);
-		},
-		process: function(data) {
-			exec_function("<pre>Processing: " + (data) + "</pre>");
-		},
-	});
-}
 function editElementText(element, text) {
 	document.getElementById(element).innerHTML = text;
 }
