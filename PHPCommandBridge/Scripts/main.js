@@ -6,13 +6,19 @@ function executeCommand(command, outElement = null, inputs = null, exec_function
 		userCommand = "'" + command + " | " + inputs + "'";
 	}
 	if (exec_function != null) {
-		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', exec_function(this.responseText));	
+		updateSend('Processor.php', {
+			command: userCommand, input: ''
+		}, exec_function(data));	
 	} else if (outElement != null) {
-		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', function(data) {
+		updateSend('Processor.php', {
+			command: userCommand, input: ''
+		}, function (data) {
 			editElementText(outElement, data);
 		});
 	} else {
-		updateSend('Processor.php?command=' + userCommand + '&' + 'input=', function (data) {
+		updateSend('Processor.php', {
+			command: userCommand, input: ''
+		}, function (data) {
 			return data;
 		});
 	}
@@ -34,25 +40,27 @@ function ajax(obj) {
 			response: ajax.responseText,
 		});
 	});
-	ajax.open(obj.type, obj.url, true);
+	var uri;
+	if (obj.data != null) {
+		var EncodedJSONString = encodeURIComponent(JSON.stringify(obj.data));
+		var js = "?json=" + EncodedJSONString;
+		uri = (obj.url + js);
+	} else {
+		uri = obj.url;
+	}
+	ajax.open(obj.type, uri, true);
 	ajax.send();
 	return ajax;
 }
-function updateSend(url, exec_function) {
+function updateSend(url, data, exec_function) {
 	var index = 0;
 	var prog = 0;
 	ajax({
 		type: "POST",
 		url: url,
+		data: data,
 		process: function (data) {
-			index = data.total;
-			prog = data.loaded;
-			if (prog < index) {
-				exec_function(data.response);
-				updateSend(url, exec_function);
-			} else {
-				exec_function(data.response);
-			}
+			exec_function(data.response);
 		}
 	});
 }

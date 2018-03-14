@@ -45,8 +45,11 @@ function bufferProcess($cmd) {
 	}
 	echo '</pre>';
 }
-$command = $_REQUEST['command']; // Retrieving data from AJAX call. <= The command to be executed.
-$inputs = $_REQUEST['input']; // <= The user response to command. E.G. a readlines call.
+$retrievedJSONData = $_GET['json']; //JSON Data from ajax call.
+$returnObject = json_decode($retrievedJSONData, false); //Parsing data to JSON Object.
+
+$command = $returnObject->command; // Retrieving data from AJAX call. <= The command to be executed.
+$inputs = $returnObject->input; // <= The user response to command. E.G. a readlines call.
 bufferProcess($command); // This will que to the process to be executed. 
 
 /*
